@@ -40,20 +40,29 @@ function Airplane(name) {
   */
   
           function Person(name, age){
-            this.name;
-            this.age;
+            this.name = "Neo";
+            this.age = 20;
             this.stomach = [];
             this.eat = function(someFood){
               this.stomach.push(someFood);
             };
             this.poop = function(){
+              this.stomach.splice(0,this.stomach.length);
             };
             this.toString = () => { return `${this.name}, ${this.age}`}
           }
  
-
-  
-  
+          Person.prototype.eat = function(someFood){
+            if(this.stomach.length < 10){
+              return this.eat;
+            }
+          }
+          Person.prototype.poop = function(){
+            return this.poop;
+          }
+          Person.prototype.toString = function(){
+            return this.toString;  
+          }
   
   
   /*
@@ -70,9 +79,17 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+  this.model = 'BatMobile'
+  
+  
+ }
+ 
+ 
+  Car.prototype.fill = function(gallons){
+    return this.tank + 10;
   }
+  
   
   
   /*
@@ -82,11 +99,17 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+  this.name = 'Lucy',
+  this.age = 5,
+  this.favoriteToy =  favoriteToy;
   }
+ Baby.prototype = Object.create(Person.prototype);
+ Baby.prototype.play = function(){
+   return `playing with ${this.favoriteToy}`
+ } 
+ const Murphy = new Baby('Murphy', 2, 'Hot Wheels')
  
-  
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
