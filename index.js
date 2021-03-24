@@ -79,13 +79,14 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car(model, milesPerGallon) {
-  this.model = 'BatMobile'
+ function Car(model, mpg) {
+  this.model = model;
+  this.milesPerGallon = mpg;
+  this.tank = 0;
+  this.odometer = 0;
  }
- 
- 
-  Car.prototype.fill = function(gallons){
-    return this.tank + 10;
+ Car.prototype.fill = function(gallons){
+    this.tank = this.tank + gallons;
   }
   
   
