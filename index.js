@@ -81,8 +81,7 @@ function Airplane(name) {
   
  function Car(model, milesPerGallon) {
   this.model = 'BatMobile'
-  
-  
+  this.milesPerGallon = 20,
  }
  
  
